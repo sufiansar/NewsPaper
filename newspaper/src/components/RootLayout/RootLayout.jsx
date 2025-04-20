@@ -7,8 +7,10 @@ import RightLayout from "../LayoutComponet/RightLayout/RightLayout";
 // import Home from "../Home/Home";
 
 const RootLayout = () => {
+  // const location = useLocation();
+  // const isAuthPage = location.pathname.includes("/auth");
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto bg-white">
       <Header />
       <section>
         <Latest />
@@ -19,6 +21,7 @@ const RootLayout = () => {
           <LeftLayout />
         </div>
         <div className="col-span-6">
+          {/* {!isAuthPage && <Sidebar />} */}
           <Outlet />
         </div>
         <div className="right col-span-3">

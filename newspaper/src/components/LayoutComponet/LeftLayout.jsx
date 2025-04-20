@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { Authcontext } from "../../Provider/AuthProvider";
 
 const LeftLayout = () => {
   const [leftCatagories, setLeftcatagories] = useState([]);
@@ -11,7 +12,7 @@ const LeftLayout = () => {
   }, []);
   return (
     <div>
-      <h1>All Caterogy </h1>
+      <h1 className="text-black">All Caterogy </h1>
 
       <div className="flex flex-col gap-2 mt-3 ">
         {leftCatagories.map((catagorie) => (
