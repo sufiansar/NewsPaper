@@ -16,15 +16,15 @@ const RootLayout = () => {
         <Latest />
       </section>
       <NavBar />
-      <div className="grid grid-cols-12 gap-3">
-        <div className="left col-span-3">
+      <div className="grid grid-cols-12 gap-3 mx-10">
+        <div className=" col-span-12  md:col-span-3">
           <LeftLayout />
         </div>
-        <div className="col-span-6">
+        <div className=" col-span-12 md:col-span-6">
           {/* {!isAuthPage && <Sidebar />} */}
           <Outlet />
         </div>
-        <div className="right col-span-3">
+        <div className="right col-span-12 md:col-span-3">
           <RightLayout />
         </div>
       </div>

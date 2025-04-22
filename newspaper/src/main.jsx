@@ -17,6 +17,8 @@ import Login from "./components/Pages/Login.jsx";
 import App from "./App.jsx";
 import Register from "./components/Pages/Register.jsx";
 import AuthProvider from "./Provider/AuthProvider.jsx";
+import NewsDetails from "./components/Home/NewsDetails.jsx";
+import SecureRoute from "./components/RootLayout/SecureRoute.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +27,21 @@ const router = createBrowserRouter(
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
       </Route>
+      <Route
+        path="/news/:id"
+        element={
+          <SecureRoute>
+            <NewsDetails />
+          </SecureRoute>
+        }
+        loader={async ({ params }) => {
+          const res = await fetch(
+            `https://openapi.programming-hero.com/api/news/${params.id}`
+          );
+          const data = await res.json();
+          return data;
+        }}
+      ></Route>
 
       <Route element={<RootLayout />}>
         <Route index element={<Navigate to="catagorie/01" />} />
